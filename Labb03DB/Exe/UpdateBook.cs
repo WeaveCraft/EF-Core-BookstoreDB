@@ -7,6 +7,7 @@ namespace Labb03DB.Exe
         public static void Display()
         {
             ListBooks.Display();
+            Console.WriteLine();
             Console.Write("Select Book: ");
             string newBookId = Console.ReadLine();
             ulong updatedBookId = CheckInputUlong(newBookId);
@@ -17,12 +18,14 @@ namespace Labb03DB.Exe
                 var author = context.Books.Find(updatedBookId);
                 if (author != null)
                 {
+                    Console.WriteLine();
                     string newDate = SaveInput("Select New Date (YYYY-MM-DD): ");
                     DateTime updatedDate = NewDate(newDate);
-
+                    Console.WriteLine();
                     string newTitle = SaveInput("Select Title: ");
 
                     ListAuthors.Display();
+                    Console.WriteLine();
                     string newAuthor = SaveInput("Select Author ID: ");
                     int newAuthorId = CheckInputInt(newAuthor);
                     var testAuthor = context.Authors.Find(newAuthorId);
@@ -34,6 +37,7 @@ namespace Labb03DB.Exe
                     }
 
                     ListLanguages.Display();
+                    Console.WriteLine();
                     string newLanguage = SaveInput("Select Language:");
                     int newLanguageId = CheckInputInt(newLanguage);
                     var tempLanguage = context.Languages.Find(newLanguageId);
@@ -46,6 +50,7 @@ namespace Labb03DB.Exe
                     }
 
                     string price = SaveInput("Select Price: ");
+                    Console.WriteLine();
                     decimal newUpdatedPrice = CheckInputDecimal(price);
 
                     author.Title = newTitle;

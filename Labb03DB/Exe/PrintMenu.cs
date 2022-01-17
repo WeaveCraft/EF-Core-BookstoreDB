@@ -108,27 +108,8 @@ namespace Bokhandel
                         }
                     case 16:
                         {
-                            try
-                            {
-                                using (var context = new BokhandelDBcontext())
-                                {
-                                    bool test = context.Books.Any();
-
-                                    if (test != true)
-                                    {
-                                        BokhandelDBcontext.AddTestData();
-                                    }
-                                    else
-                                        Console.WriteLine("Data Added\nPress Any Key...");
-                                }
-
-                            }
-                            catch
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Data Now Exists");
-                            }
-                            Console.ReadLine();
+                            AddData.Display();
+                            Console.ReadKey();
                             break;
                         }
                     default:
@@ -141,7 +122,7 @@ namespace Bokhandel
             }
 
         }
-        
+
         int CheckInputInt(string input)
         {
             bool x = int.TryParse(input, out int result);

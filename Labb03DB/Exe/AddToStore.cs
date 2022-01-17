@@ -10,6 +10,7 @@ namespace Labb03DB.Exe
             using (var context = new BokhandelDBcontext())
             {
                 ListBooks.Display();
+                Console.WriteLine();
                 Console.Write("Book ID: ");
                 ulong id = CheckInputUlong(Console.ReadLine());
                 bool book = context.Books.Any(x => x.Id == id);
@@ -22,6 +23,7 @@ namespace Labb03DB.Exe
                 Console.WriteLine();
 
                 ListStores.Display();
+                Console.WriteLine();
                 Console.Write("Select Store: ");
                 int storeId = CheckInputInt(Console.ReadLine());
                 bool store = context.Stores.Any(x => x.Id == storeId);
@@ -32,8 +34,7 @@ namespace Labb03DB.Exe
                     return;
                 }
                 Console.WriteLine();
-
-                Console.WriteLine("Book Quantity: ");
+                Console.Write("Book Quantity: ");
                 int quantity = CheckInputInt(Console.ReadLine());
 
                 var search = context.Stocks.Where(x => x.Store_Id == storeId && x.Book_Id == id).FirstOrDefault();

@@ -10,19 +10,21 @@ namespace Labb03DB.Exe
             {
 
                 ListAuthors.Display();
+                Console.WriteLine();
                 string x = SaveInput("Select Author: ");
                 int author = CheckInputInt(x);
 
                 var tempAuthor = context.Authors.Find(author);
                 if (author != null)
                 {
-
+                    Console.WriteLine();
                     string title = SaveInput("Select Title: ");
-
+                    Console.WriteLine();
                     string tempPrice = SaveInput("Select Price: ");
                     decimal price = CheckInputDecimal(tempPrice);
 
                     ListLanguages.Display();
+                    Console.WriteLine();
                     string tempLanguage = SaveInput("Select Language: ");
                     int languageId = CheckInputInt(tempLanguage);
                     var language = context.Languages.Find(languageId);

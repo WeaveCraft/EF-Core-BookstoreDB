@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Labb03DB.Migrations
 {
     [DbContext(typeof(BokhandelDBcontext))]
-    [Migration("20220117145955_01")]
+    [Migration("20220117161953_01")]
     partial class _01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,10 +114,12 @@ namespace Labb03DB.Migrations
             modelBuilder.Entity("Bokhandel.Models.Stock", b =>
                 {
                     b.Property<int>("Store_Id")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("Store_Id");
 
                     b.Property<decimal>("Book_Id")
-                        .HasColumnType("decimal(20,0)");
+                        .HasColumnType("decimal(20,0)")
+                        .HasColumnName("Book_Id");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

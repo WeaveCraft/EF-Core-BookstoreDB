@@ -10,6 +10,7 @@ namespace Labb03DB.Exe
             {
 
                 ListBooks.Display();
+                Console.WriteLine();
                 Console.Write("Type in a Book ID: ");
                 ulong id = CheckInputUlong(Console.ReadLine());
                 bool ifFindBook = context.Books.Any(x => x.Id == id);
@@ -22,6 +23,7 @@ namespace Labb03DB.Exe
                 Console.WriteLine();
 
                 ListStores.Display();
+                Console.WriteLine();
                 Console.Write("Select Store: ");
                 int storeId = CheckInputInt(Console.ReadLine());
                 bool ifFindStore = context.Stores.Any(x => x.Id == storeId);
