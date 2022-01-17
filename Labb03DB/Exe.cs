@@ -5,6 +5,140 @@ namespace Bokhandel
 {
     public class Exe
     {
+        public void PrintMenu()
+        {
+
+            string[] j = new string[] {
+                "See List of Availiable Languages",
+                "See List of Availiable Books",
+                "See List of Availiable Authors",
+                "See List of Availiable Bookstores",
+                "See List of Available Stock Value ",
+                " ",
+                " ",
+                "Add Book to a Specific Store",
+                "Add New Book to a Specific Author",
+                " ",
+                "Delete book",
+                "Delete books from store (Plural)",
+                " ",
+                "Update Book",
+                " ",
+                "Add Test Data",
+                "", };
+
+            int menyVal = 0;
+            while (menyVal != j.Length + 1)
+            {
+                Console.Clear();
+
+                for (int i = 0; i < j.Length; i++)
+                {
+                    Console.WriteLine($"[{i + 1}] {j[i]}");
+                }
+                Console.WriteLine($"[{j.Length + 1}] Exit");
+
+                menyVal = CheckInputInt(Console.ReadLine());
+
+                Console.Clear();
+
+                switch (menyVal)
+                {
+                    case 1:
+                        {
+                            ListLanguages();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 2:
+                        {
+                            ListBooks();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 3:
+                        {
+                            ListAuthors();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 4:
+                        {
+                            ListStores();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 5:
+                        {
+                            ShowStocks();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 8:
+                        {
+                            AddToStore();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 9:
+                        {
+                            AddBook();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 11:
+                        {
+                            DeleteBook();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 12:
+                        {
+                            DeleteBookFromStore();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 14:
+                        {
+                            UpdateBook();
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 16:
+                        {
+                            try
+                            {
+                                using (var context = new BokhandelDBcontext())
+                                {
+                                    bool test = context.Books.Any();
+
+                                    if (test != true)
+                                    {
+                                        AddTestData();
+                                    }
+                                    else
+                                        Console.WriteLine("Data Added\nPress Any Key...");
+                                }
+
+                            }
+                            catch
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Data Now Exists");
+                            }
+                            Console.ReadLine();
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Error");
+                            Console.ReadLine();
+                            break;
+                        }
+                }
+            }
+
+        }
         void AddTestData() 
         {
             TestData.AddLanguages();
@@ -268,15 +402,15 @@ namespace Bokhandel
             using (var context = new BokhandelDBcontext())
             {
                 var data = (from b in context.Books
-                            join st in context.Stocks
-                             on b.Id equals st.Book_Id
-                            join stc in context.Stores
-                            on st.Store_Id equals stc.Id into left
+                            join s in context.Stocks
+                             on b.Id equals s.Book_Id
+                            join q in context.Stores
+                            on s.Store_Id equals q.Id into left
                             from left2 in left.DefaultIfEmpty()
                             select new
                             {
                                 StoreName = (left2 == null ? "null" : left2.StoreName),
-                                StockAmount = st.Quantity,
+                                StockAmount = s.Quantity,
                                 BookName = b.Title
                             }).ToList();
                 foreach (var item in data)
@@ -387,139 +521,5 @@ namespace Bokhandel
 
         #endregion
 
-        public void PrintMenu()
-        {
-            
-            string[] j = new string[] {
-                "See List of Availiable Languages",
-                "See List of Availiable Books",
-                "See List of Availiable Authors",
-                "See List of Availiable Bookstores",
-                "See List of Available Stock Value ",
-                " ",
-                " ",
-                "Add Book to a Specific Store",
-                "Add New Book to a Specific Author",
-                " ",
-                "Delete book",
-                "Delete books from store (Plural)",
-                " ",
-                "Update Book",
-                " ",
-                "Add Test Data",
-                "", };
-
-            int menyVal = 0;
-            while (menyVal != j.Length + 1)
-            {
-                Console.Clear();
-
-                for (int i = 0; i < j.Length; i++)
-                {
-                    Console.WriteLine($"[{i + 1}] {j[i]}");
-                }
-                Console.WriteLine($"[{j.Length + 1}] Exit");
-
-                menyVal = CheckInputInt(Console.ReadLine());
-
-                Console.Clear();
-
-                switch (menyVal)
-                {
-                    case 1:
-                        {
-                            ListLanguages();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 2:
-                        {
-                            ListBooks();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 3:
-                        {
-                            ListAuthors();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 4:
-                        {
-                            ListStores();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 5:
-                        {
-                            ShowStocks();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 8:
-                        {
-                            AddToStore();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 9:
-                        {
-                            AddBook();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 11:
-                        {
-                            DeleteBook();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 12:
-                        {
-                            DeleteBookFromStore();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 14:
-                        {
-                            UpdateBook();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 16:
-                        {
-                            try
-                            {
-                                using (var context = new BokhandelDBcontext())
-                                {
-                                    bool test = context.Books.Any();
-
-                                    if (test != true)
-                                    {
-                                        AddTestData();
-                                    }
-                                    else
-                                        Console.WriteLine("Data Added\nPress Any Key...");
-                                }
-
-                            }
-                            catch
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Data Now Exists");
-                            }
-                            Console.ReadLine();
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Error");
-                            Console.ReadLine();
-                            break;
-                        }
-                }
-            }
-
-        }
     }
 }
