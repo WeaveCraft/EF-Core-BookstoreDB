@@ -19,9 +19,18 @@ namespace Bokhandel
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=BookstoreDB;Trusted_Connection=True");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=BookstoreDB41445;Trusted_Connection=True");
         }
 
+
+
+        public static void AddTestData()
+        {
+            TestData.AddLanguages();
+            TestData.AddAuthorswithBooks();
+            TestData.AddStarterStores();
+            TestData.AddStarterToStores();
+        }
 
 
 

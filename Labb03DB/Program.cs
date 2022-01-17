@@ -1,7 +1,7 @@
 ﻿using Bokhandel;
 
-Exe run = new Exe();
+PrintMenu run = new PrintMenu();
 Console.ForegroundColor = ConsoleColor.Cyan;
 Console.WriteLine("-------------BookstoreDB EF Core-------------");
 Thread.Sleep(2000);
-run.PrintMenu();
+run.Menu();
