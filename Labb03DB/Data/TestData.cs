@@ -4,7 +4,7 @@ namespace Bokhandel
 {
     public static class TestData
     {
-        public static void AddAuthorswithBooks()
+        public static void AddBookswithAuthors()
         {
             using (var context = new BokhandelDBcontext())
             {
@@ -129,14 +129,10 @@ namespace Bokhandel
                     context.AddRange(author01, author02, author03, author04, author05);
                     context.SaveChanges();
                 };
-
-
-
-
             }
         }
 
-        public static void AddStarterStores()
+        public static void AddStores()
         {
             using (var context = new BokhandelDBcontext())
             {
@@ -163,7 +159,7 @@ namespace Bokhandel
             }
         }
 
-        public static void AddStarterToStores()
+        public static void AddStock()
         {
 
             using (var context = new BokhandelDBcontext())
@@ -354,7 +350,6 @@ namespace Bokhandel
                 };
                 context.AddRange(stock);
                 context.SaveChanges();
-
             }
         }
 

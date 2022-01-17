@@ -27,9 +27,9 @@ namespace Bokhandel
         public static void AddTestData()
         {
             TestData.AddLanguages();
-            TestData.AddAuthorswithBooks();
-            TestData.AddStarterStores();
-            TestData.AddStarterToStores();
+            TestData.AddBookswithAuthors();
+            TestData.AddStores();
+            TestData.AddStock();
         }
 
 
