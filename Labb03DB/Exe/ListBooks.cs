@@ -12,7 +12,8 @@ namespace Labb03DB.Exe
 
                 foreach (var item in books)
                 {
-                    Console.WriteLine($"Id: {item.Id}, Title: {item.Title}, AuthorsId: {item.AuthorId} ");
+                    Console.WriteLine($"Book ID: {item.Id} \nBook Title: {item.Title} \nAuthors ID: {item.AuthorId} ");
+                    Console.WriteLine();
                 }
             }
         }

@@ -11,7 +11,8 @@ namespace Labb03DB.Exe
                 var store = context.Stores.ToList();
                 foreach (var item in store)
                 {
-                    Console.WriteLine($"{item.Id}: {item.StoreName}, {item.StoreAddress}");
+                    Console.WriteLine($"Store ID: {item.Id} \nStore Name: {item.StoreName}, \nAdress: {item.StoreAddress}");
+                    Console.WriteLine();
                 }
             }
         }

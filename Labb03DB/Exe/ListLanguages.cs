@@ -13,7 +13,7 @@ namespace Labb03DB.Exe
 
                 foreach (var item in language)
                 {
-                    Console.WriteLine($"{item.Id} {item.LanguageName}");
+                    Console.WriteLine($"Language ID: {item.Id} {item.LanguageName}");
                 }
             }
         }

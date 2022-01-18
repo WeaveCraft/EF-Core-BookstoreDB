@@ -20,9 +20,9 @@ namespace Labb03DB
                                     StockAmount = s.Quantity,
                                     BookName = b.Title
                                 }).ToList();
-                    foreach (var item in data)
+                    foreach (var items in data)
                     {
-                        Console.WriteLine($"Store Name: {item.StoreName}\n Quantity: {item.StockAmount}\n Title: {item.BookName}");
+                        Console.WriteLine($"Store Name: {items.StoreName}\n  Title: {items.BookName}\nQuantity: {items.StockAmount}");
                     }
                 }
         }
