@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Labb03DB.Migrations
 {
     [DbContext(typeof(BokhandelDBcontext))]
-    [Migration("20220117162748_01")]
-    partial class _01
+    [Migration("20220121232801_n01")]
+    partial class n01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -9,7 +9,6 @@ namespace Bokhandel
             using (var context = new BokhandelDBcontext())
             {
 
-                {
                     Author author01 = new Author
                     {
                         FirstName = "Viktor",
@@ -128,7 +127,6 @@ namespace Bokhandel
                     author05.Books = new List<Book> { book09, book10 };
                     context.AddRange(author01, author02, author03, author04, author05);
                     context.SaveChanges();
-                };
             }
         }
 
