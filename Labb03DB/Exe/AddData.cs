@@ -10,9 +10,9 @@ namespace Labb03DB.Exe
             {
                 using (var context = new BokhandelDBcontext())
                 {
-                    bool test = context.Books.Any();
+                    bool insert = context.Books.Any();
 
-                    if (test != true)
+                    if (insert != true)
                     {
                         BokhandelDBcontext.AddTestData();
                     }

@@ -22,7 +22,7 @@ namespace Bokhandel
                 "Add New Book to a Specific Author",
                 " ",
                 "Delete book",
-                "Delete books from store (Plural)",
+                "Delete books from store",
                 " ",
                 "Update Book",
                 " ",

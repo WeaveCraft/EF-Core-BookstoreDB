@@ -8,8 +8,8 @@ namespace Labb03DB.Exe
         {
             using (var context = new BokhandelDBcontext())
             {
-                var allAuthors = context.Authors.ToList();
-                foreach (var item in allAuthors)
+                var authors = context.Authors.ToList();
+                foreach (var item in authors)
                 {
                     Console.WriteLine($"Author ID: {item.Id} {item.FirstName} {item.LastName} {item.DateofBirth}");
                 }
