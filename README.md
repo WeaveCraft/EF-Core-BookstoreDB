@@ -1,7 +1,5 @@
 # EF-Core-BookstoreDB
 
-Download file at "https://github.com/vihu001/EF-Core-BookstoreDB"
-
 All the Dependencies -> Packages should already be included.
 If not, download the following;
 
