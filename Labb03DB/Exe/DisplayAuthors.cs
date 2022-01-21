@@ -2,7 +2,7 @@
 
 namespace Labb03DB.Exe
 {
-    internal class ListAuthors
+    internal class DisplayAuthors
     {
         public static void Display()
         {

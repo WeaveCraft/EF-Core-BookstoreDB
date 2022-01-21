@@ -9,7 +9,7 @@ namespace Labb03DB.Exe
             using (var context = new BokhandelDBcontext())
             {
 
-                ListBooks.Display();
+                DisplayBook.Display();
                 Console.WriteLine();
                 Console.Write("Type in a Book ID: ");
                 ulong id = CheckInputUlong(Console.ReadLine());
@@ -22,7 +22,7 @@ namespace Labb03DB.Exe
                 }
                 Console.WriteLine();
 
-                ListStores.Display();
+                DisplayStores.Display();
                 Console.WriteLine();
                 Console.Write("Select Store: ");
                 int storeId = CheckInputInt(Console.ReadLine());

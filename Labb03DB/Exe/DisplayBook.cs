@@ -2,16 +2,17 @@
 
 namespace Labb03DB.Exe
 {
-    internal class ListStores
+    internal class DisplayBook
     {
         public static void Display()
         {
             using (var context = new BokhandelDBcontext())
             {
-                var store = context.Stores.ToList();
-                foreach (var item in store)
+                var books = context.Books.ToList();
+
+                foreach (var item in books)
                 {
-                    Console.WriteLine($"Store ID: {item.Id} \nStore Name: {item.StoreName}, \nAdress: {item.StoreAddress}");
+                    Console.WriteLine($"Book ID: {item.Id} \nBook Title: {item.Title} \nAuthors ID: {item.AuthorId} ");
                     Console.WriteLine();
                 }
             }

@@ -1,137 +1,127 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Bokhandel.Models;
-using Labb03DB;
+﻿using Labb03DB;
 using Labb03DB.Exe;
 
 namespace Bokhandel
 {
     public class PrintMenu
     {
-        public void Menu()
+        public void MainMenu()
         {
-
-            string[] menu = new string[] {
-                "See List of Availiable Languages",
-                "See List of Availiable Books",
-                "See List of Availiable Authors",
-                "See List of Availiable Bookstores",
-                "See List of Available Stock Value ",
-                " ",
-                " ",
-                "Add Book to a Specific Store",
-                "Add New Book to a Specific Author",
-                " ",
-                "Delete book",
-                "Delete books from store",
-                " ",
-                "Update Book",
-                " ",
-                "Add Test Data",
-                "", };
-
-            int menyVal = 0;
-            while (menyVal != menu.Length + 1)
+            while (true)
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("1 See List of Availiable Languages");
+                Console.WriteLine("2 See List of Availiable Books");
+                Console.WriteLine("3 See List of Availiable Authors");
+                Console.WriteLine("4 See List of Availiable Bookstores");
+                Console.WriteLine("5 See List of Available Stock Value");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("6 Add Book to a Specific Store");
+                Console.WriteLine("7 Add New Book to a Specific Author");
+                Console.WriteLine();
+                Console.WriteLine("8 Delete book");
+                Console.WriteLine("9 Delete books from store");
+                Console.WriteLine();
+                Console.WriteLine("10 Update Book");
+                Console.WriteLine();
+                Console.WriteLine("0 Add Test Data");
 
-                for (int i = 0; i < menu.Length; i++)
+                try
                 {
-                    Console.WriteLine($"[{i + 1}] {menu[i]}");
-                }
-                Console.WriteLine($"[{menu.Length + 1}] Exit");
+                    int userInput = CheckInputInt(Console.ReadLine());
 
-                menyVal = CheckInputInt(Console.ReadLine());
+                    switch (userInput)
+                    {
+                        case 1:
+                            Console.Clear();
+                            DisplayLanguages.Display();
+                            Console.ReadKey();
+                            break;
 
-                Console.Clear();
+                        case 2:
+                            Console.Clear();
+                            DisplayBook.Display();
+                            Console.ReadKey();
+                            break;
 
-                switch (menyVal)
-                {
-                    case 1:
-                        {
-                            ListLanguages.Display();
+                        case 3:
+                            Console.Clear();
+                            DisplayAuthors.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 2:
-                        {
-                            ListBooks.Display();
+
+                        case 4:
+                            Console.Clear();
+                            DisplayStores.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 3:
-                        {
-                            ListAuthors.Display();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 4:
-                        {
-                            ListStores.Display();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 5:
-                        {
+
+                        case 5:
+                            Console.Clear();
                             ShowStocks.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 8:
-                        {
+
+                        case 6:
+                            Console.Clear();
                             AddToStore.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 9:
-                        {
+
+                        case 7:
+                            Console.Clear();
                             AddBook.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 11:
-                        {
+
+                        case 8:
+                            Console.Clear();
                             DeleteBook.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 12:
-                        {
+
+                        case 9:
+                            Console.Clear();
                             DeleteBookFromStore.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 14:
-                        {
+
+                        case 10:
+                            Console.Clear();
                             UpdateBook.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    case 16:
-                        {
+
+                        case 0:
+                            Console.Clear();
                             AddData.Display();
                             Console.ReadKey();
                             break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Error");
-                            Console.ReadLine();
+
+                        default:
+                            MainMenu();
                             break;
-                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MainMenu();
+                    throw;
                 }
             }
-
         }
-
-        int CheckInputInt(string input)
+        public static int CheckInputInt(string input)
         {
-            bool x = int.TryParse(input, out int result);
-            while (result < 0 || x == false)
+            bool inputInt = int.TryParse(input, out int result);
+
+            while (result < 0 || inputInt == false)
             {
                 Console.Write("Invalid, try again: ");
                 input = Console.ReadLine();
                 Console.WriteLine();
-                x = int.TryParse(input, out result);
+                inputInt = int.TryParse(input, out result);
             }
             return result;
         }

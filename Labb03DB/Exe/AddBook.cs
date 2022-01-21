@@ -9,7 +9,7 @@ namespace Labb03DB.Exe
             using (var context = new BokhandelDBcontext())
             {
 
-                ListAuthors.Display();
+                DisplayAuthors.Display();
                 Console.WriteLine();
                 string x = SaveInput("Select Author: ");
                 int author = CheckInputInt(x);
@@ -23,7 +23,7 @@ namespace Labb03DB.Exe
                     string tempPrice = SaveInput("Select Price: ");
                     decimal price = CheckInputDecimal(tempPrice);
 
-                    ListLanguages.Display();
+                    DisplayLanguages.Display();
                     Console.WriteLine();
                     string tempLanguage = SaveInput("Select Language: ");
                     int languageId = CheckInputInt(tempLanguage);

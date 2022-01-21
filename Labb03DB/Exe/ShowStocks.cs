@@ -7,7 +7,9 @@ namespace Labb03DB
         public static void Display()
         {
                 using (var context = new BokhandelDBcontext())
+
                 {
+
                     var data = (from b in context.Books
                                 join s in context.Stocks
                                  on b.Id equals s.Book_Id
@@ -20,6 +22,9 @@ namespace Labb03DB
                                     StockAmount = s.Quantity,
                                     BookName = b.Title
                                 }).ToList();
+
+
+
                     foreach (var items in data)
                     {
                         Console.WriteLine($"Store Name: {items.StoreName}\n  Title: {items.BookName}\nQuantity: {items.StockAmount}");

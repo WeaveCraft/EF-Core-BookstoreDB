@@ -2,7 +2,7 @@
 
 namespace Labb03DB.Exe
 {
-    internal class ListLanguages
+    internal class DisplayLanguages
     {
         public static void Display()
         {

@@ -7,7 +7,7 @@ namespace Labb03DB.Exe
     {
         public static void Display()
         {
-            ListBooks.Display();
+            DisplayBook.Display();
             Console.WriteLine();
             Console.Write("Select Book ID: ");
             string input = Console.ReadLine();

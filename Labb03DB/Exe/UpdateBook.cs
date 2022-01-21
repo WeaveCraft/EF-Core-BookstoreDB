@@ -6,7 +6,7 @@ namespace Labb03DB.Exe
     {
         public static void Display()
         {
-            ListBooks.Display();
+            DisplayBook.Display();
             Console.WriteLine();
             Console.Write("Select Book: ");
             string newBookId = Console.ReadLine();
@@ -24,7 +24,7 @@ namespace Labb03DB.Exe
                     Console.WriteLine();
                     string newTitle = SaveInput("Select Title: ");
 
-                    ListAuthors.Display();
+                    DisplayAuthors.Display();
                     Console.WriteLine();
                     string newAuthor = SaveInput("Select Author ID: ");
                     int newAuthorId = CheckInputInt(newAuthor);
@@ -36,7 +36,7 @@ namespace Labb03DB.Exe
                         return;
                     }
 
-                    ListLanguages.Display();
+                    DisplayLanguages.Display();
                     Console.WriteLine();
                     string newLanguage = SaveInput("Select Language:");
                     int newLanguageId = CheckInputInt(newLanguage);
