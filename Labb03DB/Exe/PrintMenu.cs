@@ -60,7 +60,7 @@ namespace Bokhandel
 
                         case 5:
                             Console.Clear();
-                            ShowStocks.Display();
+                            DisplayStocks.Display();
                             Console.ReadKey();
                             break;
 

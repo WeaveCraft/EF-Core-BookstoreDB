@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Labb03DB.Migrations
 {
-    public partial class n01 : Migration
+    public partial class a01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

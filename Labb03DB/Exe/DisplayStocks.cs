@@ -2,7 +2,7 @@
 
 namespace Labb03DB
 {
-    internal class ShowStocks
+    internal class DisplayStocks
     {
         public static void Display()
         {
@@ -14,11 +14,11 @@ namespace Labb03DB
                                 join s in context.Stocks
                                  on b.Id equals s.Book_Id
                                 join q in context.Stores
-                                on s.Store_Id equals q.Id into left
-                                from left2 in left.DefaultIfEmpty()
-                                select new
+                                on s.Store_Id equals q.Id into right
+                                from right2 in right.DefaultIfEmpty()
+                                select new 
                                 {
-                                    StoreName = (left2 == null ? "null" : left2.StoreName),
+                                    StoreName = (right2 == null ? "empty" : right2.StoreName),
                                     StockAmount = s.Quantity,
                                     BookName = b.Title
                                 }).ToList();

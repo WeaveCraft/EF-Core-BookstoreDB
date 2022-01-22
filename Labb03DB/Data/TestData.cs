@@ -25,7 +25,7 @@ namespace Bokhandel
                     {
                         FirstName = "Rocelia",
                         LastName = "Hernandez",
-                        DateofBirth = new DateTime(1995, 01, 01)
+                        DateofBirth = new DateTime(1995, 04, 26)
                     };
                     Author author04 = new Author
                     {
@@ -37,7 +37,7 @@ namespace Bokhandel
                     {
                         FirstName = "Akiko",
                         LastName = "Saito",
-                        DateofBirth = new DateTime(1993, 04, 23)
+                        DateofBirth = new DateTime(1993, 09, 25)
                     };
                     Book book01 = new Book
                     {
