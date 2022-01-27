@@ -15,4 +15,4 @@ Then type into the Package Manager Console "update-database" and start program (
 
 You should already have the required migrations. If not, do "add-migration a1" -> "update-database" in the Package Manager Console.
 
-You can get test data by starting the project and choosing option "16".
+You can get test data by starting the project and choosing option "0".
