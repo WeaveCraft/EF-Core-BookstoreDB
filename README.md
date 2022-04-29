@@ -1,5 +1,5 @@
 # EF-Core-BookstoreDB
-School project from Campus Nyköping "Programmering i .Net C# 2".
+School project from Campus Nyköping "Programmering i .Net C# 2"
 
 All the Dependencies -> Packages should already be included.
 If not, download the following;
