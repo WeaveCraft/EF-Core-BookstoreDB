@@ -18,4 +18,5 @@ You should already have the required migrations. If not, do "add-migration a1" -
 
 You can get test data by starting the project and choosing option "0".
 
-![Screenshot 2022-10-23 125723](https://user-images.githubusercontent.com/90194213/197388393-98f76672-0896-4ae0-bc6a-104c5a51cea5.png)
+
+![Screenshot 2022-10-23 125942](https://user-images.githubusercontent.com/90194213/197388400-1df83fd6-9ed1-4515-b5d1-e1147ccbc2a2.png)
